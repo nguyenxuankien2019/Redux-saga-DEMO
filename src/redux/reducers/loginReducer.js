@@ -1,17 +1,22 @@
 import * as types from '../typeActions'
 const initialState = {
     currentUser: {},
-    loginSuccess: false,
-
+    token: '',
+    loginSuccess:false
   }
 const loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.LOGIN_SUCCESS:
             return {
               ...state,
-              currentUser: action.payload.data,
+              token: action.payload.token,
               loginSuccess: true
             }
+            case types.CLEARTOKEN:
+              return {
+                token: '',
+                loginSuccess:false
+              }
         default:
             return state
     }

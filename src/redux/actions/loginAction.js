@@ -1,22 +1,28 @@
 import * as types from '../typeActions';
 
 export const loginAction = (payload) => {
-  console.log('loggin');
     return {
       type: types.LOGIN_ACTION,
-      payload: payload
+      payload
     }
   }
   
   export const loginSuccess = (payload) => {
     return {
       type: types.LOGIN_SUCCESS,
-      payload: payload
+      payload
     }
   }
   
-  export const loginFailed = () => {
+  export const loginFailed = (payload) => {
     return {
-      type: types.LOGIN_FAILED
+      type: types.LOGIN_FAILED,
+      payload
+    }
+  }
+  export const clearToken = (payload) => {
+    return {
+      type: types.CLEARTOKEN,
+      payload
     }
   }

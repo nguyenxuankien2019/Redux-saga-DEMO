@@ -1,29 +1,25 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import * as types from '../typeActions';
 import axios from 'axios';
+const BASE_URL = 'https://reqres.in';
 
  function* handleLogin(action) {
-    try {
-      console.log('loggin');
-      
+    try {      
         const apiConfig = {
           method: 'post',
-          url: 'https://jsonplaceholder.typicode.com/posts',
-          data: {
-            userId: action.payload.userId
-          }
+          url: BASE_URL+'/api/login',
+          data: action.payload
         };
     
         const response = yield call(axios, apiConfig);
         console.log(response),'res';
         yield put({type: types.LOGIN_SUCCESS, payload: response.data });
       } catch (e) {
-        console.log(e,'eee');
+        console.log(e,'err');
         yield put({type: types.LOGIN_FAILED, payload: e.message });
       }
 }
 
 export function* watchLogin() {
-  console.log('loggin watch');
     yield takeLatest(types.LOGIN_ACTION, handleLogin)
 }

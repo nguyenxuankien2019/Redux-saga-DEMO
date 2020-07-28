@@ -2,13 +2,30 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Button, Text, TextInput } from 'react-native';
 //  import Input from '../component/Input';
 import { connect } from 'react-redux';
-import {loginAction} from '../redux/actions/loginAction';
+import { loginAction,clearToken } from '../redux/actions/loginAction';
 
+// {
+//     "email": "eve.holt@reqres.in",
+//     "password": "cityslicka"
+// }
 class Login extends Component {
-    state = { email: '', password: '' }
+    constructor(props){
+        super(props);
+        this.state = { email: '', password: '',token: props.token }
+    }
     
+    componentDidMount(){
+       this.props.clearToken();
+    }
+    componentDidUpdate(preProps,preState){
+        if (this.props.loginSuccess ) {
+            this.props.navigation.navigate('Home');
+        }
+    }
+  
     render() {
-        console.log(this.props);
+        console.log(this.props, 'tokennn');
+        console.log(this.state, 'statestate');
         return (
             <View style={styles.container} >
                 <TextInput
@@ -20,15 +37,21 @@ class Login extends Component {
                     placeholder='Password'
                     secureTextEntry
                     onChangeText={(value) => this.setState({ password: value })} />
+                   <View>
+                     {this.state.validate && <Text>{'Tai khoan khong hop le'}</Text>}  
+                       </View>
                 <Button
                     style={styles.buttonLogin} title='Login'
                     onPress={this.login} />
             </View>
         );
     }
-    login =() =>{
-        // this.props.navigation.navigate('Home');
-        this.props.loginAction({'userId': 1})
+    login = () => {
+            let payload = {
+                "email": this.state.email,
+                "password": this.state.password
+            }
+            this.props.loginAction(payload);
     }
 }
 const styles = StyleSheet.create({
@@ -46,19 +69,21 @@ const styles = StyleSheet.create({
         width: '100%',
         borderColor: 'grey',
         borderWidth: 1,
-        margin:10,
+        margin: 10,
     }
 })
 
 function mapStateToProps(state) {
     return {
-        currentUser: state.login.currentUser
+        token: state.login.token,
+        loginSuccess: state.login.loginSuccess
     };
-  }
-  
-  const mapDispatchToProps = {
-    loginAction
-  }
-  
+}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+const mapDispatchToProps = {
+    loginAction,
+    clearToken
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
