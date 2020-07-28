@@ -1,7 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import * as types from '../typeActions';
 import axios from 'axios';
-const BASE_URL = 'https://reqres.in';
+import {BASE_URL} from './index';
 
  function* handleLogin(action) {
     try {      

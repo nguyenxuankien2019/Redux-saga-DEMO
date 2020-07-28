@@ -24,8 +24,6 @@ class Login extends Component {
     }
   
     render() {
-        console.log(this.props, 'tokennn');
-        console.log(this.state, 'statestate');
         return (
             <View style={styles.container} >
                 <TextInput

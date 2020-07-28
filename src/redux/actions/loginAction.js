@@ -20,6 +20,7 @@ export const loginAction = (payload) => {
       payload
     }
   }
+
   export const clearToken = (payload) => {
     return {
       type: types.CLEARTOKEN,
