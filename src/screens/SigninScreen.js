@@ -5,7 +5,7 @@ import AuthForm from './Components/AuthForm';
 import NavLink from './Components/NavLink';
 
 const SigninScreen = ({ navigation }) => {
-    const { state, signup } = useContext(AuthContext);
+    const { state, signin } = useContext(AuthContext);
 
     return (
         <>
@@ -14,7 +14,7 @@ const SigninScreen = ({ navigation }) => {
             headerText = "Sign In for Tracker"
             errorMessage={state.errorMessage}
             submitButtonText = "Sign In"
-            onSubmit = {({ email, password}) => signup({email, password})}
+            onSubmit = {({ email, password}) => signin({email, password})}
             />
             <NavLink
             navigation={navigation}
