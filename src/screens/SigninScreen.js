@@ -11,7 +11,7 @@ class SigninScreen extends Component {
         return (
             <SafeAreaView style={styles.container}>
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('Signup')}>
-                <Text>Go to TrackListFlow</Text>
+                <Text>Go to Sign up</Text>
             </TouchableOpacity>
             
         </SafeAreaView>

@@ -2,7 +2,7 @@
 import React, { useState, useContext } from 'react';
 import { View, StyleSheet,  TouchableOpacity } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements'
-import { Context as AuthContext } from '../context/AuthContext';
+import { Context as AuthContext } from '../../context/AuthContext';
 
 
 const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
