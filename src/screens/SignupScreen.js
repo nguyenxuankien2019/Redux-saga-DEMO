@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements'
-import Spacer from '../Components/Spacer';
+import { Context as AuthContext } from '../context/AuthContext';
+
 const SigninScreen = ({ navigation }) => {
-    const [email,setEmail] =useState('');
-    const [password,setPassword] =useState('');
+    const { state, signup } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <>
@@ -13,23 +15,25 @@ const SigninScreen = ({ navigation }) => {
                 <Text h3>Sign up for Tracker</Text>
                 <View style={styles.spacer} />
 
-                <Input 
-                label='Email'
-                value={email}
-                onChangeText={setEmail}
-                autoCorrect={false}
-                autoCapitalize='none' />
+                <Input
+                    label='Email'
+                    value={email}
+                    onChangeText={setEmail}
+                    autoCorrect={false}
+                    autoCapitalize='none' />
                 <View style={styles.spacer} />
 
-                <Input 
-                label='Password' 
-                value={password}
-                onChangeText={setPassword}
-                autoCorrect={false}
-                autoCapitalize='none' 
-                secureTextEntry />
+                <Input
+                    label='Password'
+                    value={password}
+                    onChangeText={setPassword}
+                    autoCorrect={false}
+                    autoCapitalize='none'
+                    secureTextEntry />
                 <View style={styles.spacer} />
-                <Button containerStyle={styles.loginBtn} title='Sign up' />
+                <Button
+                    onPress={() => signup({ email, password })}
+                    containerStyle={styles.loginBtn} title='Sign up' />
             </View>
         </>
     );
