@@ -4,7 +4,7 @@ import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from './Components/AuthForm';
 import NavLink from './Components/NavLink';
 
-const SigninScreen = ({ navigation }) => {
+const SignupScreen = ({ navigation }) => {
     const { state, signup } = useContext(AuthContext);
 
     return (
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default SigninScreen;
+export default SignupScreen;
