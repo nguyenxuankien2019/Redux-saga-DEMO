@@ -9,7 +9,7 @@ class SigninScreen extends Component {
     render() {
 
         return (
-           <Text> Account screens</Text>
+           <Text> Signin screens</Text>
         );
     }
 }
