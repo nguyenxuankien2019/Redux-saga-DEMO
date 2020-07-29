@@ -7,7 +7,8 @@ const SigninScreen = ({ navigation }) => {
     const { state, signup } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+        console.log('signup state: ',state);
+        
     return (
         <>
             <View style={styles.container}>
@@ -31,6 +32,7 @@ const SigninScreen = ({ navigation }) => {
                     autoCapitalize='none'
                     secureTextEntry />
                 <View style={styles.spacer} />
+    {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage} </Text>:  null}
                 <Button
                     onPress={() => signup({ email, password })}
                     containerStyle={styles.loginBtn} title='Sign up' />
@@ -49,7 +51,12 @@ const styles = StyleSheet.create({
     loginBtn: {
         width: '80%'
     },
-    spacer: { margin: 10 }
+    spacer: { margin: 10 },
+    errorMessage:{
+        marginBottom: 10,
+        width:'100%',
+        color:'red',
+    }
 
 })
 

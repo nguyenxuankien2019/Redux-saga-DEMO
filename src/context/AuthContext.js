@@ -3,6 +3,8 @@ import trackApi from '../../track-server/api/tracker';
 
 const authReducer = (state, action) => {
     switch (action.type) {
+        case 'add_error':
+            return {...state, errorMessage: action.payload};
         default:
             return state;
 
@@ -18,7 +20,7 @@ const signup = (dispatch) => {
 
         } catch (err) {
             console.log('err 400',err.message);
-
+            dispatch({ type: 'add_error', payload: 'Something went wrong with sign up!'});
         }
         // if we sign up, modify our state and say that we are authenticated
 
@@ -47,5 +49,5 @@ const signout = (dispatch) => {
 export const { Provider, Context } = createDataContext(
     authReducer,
     { signin, signup, signout },
-    { isSignedIn: false }
+    { isSignedIn: false, errorMessage: '' }
 )
