@@ -14,7 +14,7 @@ app.use(authRoutes);
 app.use(trackRoutes);
 //username:udemy_lab
 //password:Kien1234
-const mongoUri = 'mongodb+srv://udemy_lab:Kien1234@cluster0.brqgy.mongodb.net/udemy_lab?retryWrites=true&w=majority';
+const mongoUri = 'mongodb+srv://lumiDEMO:Kien1234@cluster0.r31wt.gcp.mongodb.net/UdemyDB?retryWrites=true&w=majority';
 
 if (!mongoUri) {
   throw new Error(
