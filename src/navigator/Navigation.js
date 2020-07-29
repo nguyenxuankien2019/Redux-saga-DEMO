@@ -9,6 +9,7 @@ import SignupScreen from '../screens/SignupScreen';
 import TrackCreateScreen from '../screens/TrackCreateScreen';
 import TrackDetailScreen from '../screens/TrackDetailScreen';
 import TrackListScreen from '../screens/TrackListScreen';
+import {Provider as AuthProvider } from '../context/AuthReducer'
 const Stack = createStackNavigator();
     let isLogin = true;
 
@@ -50,4 +51,10 @@ const AppStackNavigator = () => {
   );
 }
 
-export default AppStackNavigator
+export default ()=>{
+  return( 
+    <AuthProvider>
+      <AppStackNavigator/>
+    </AuthProvider>
+  )
+}
