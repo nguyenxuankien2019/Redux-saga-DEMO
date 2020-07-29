@@ -9,12 +9,19 @@ const authReducer = (state, action) => {
             return {...state, errorMessage: action.payload};
         case 'signup':
             return {...state, token: action.payload };
+        case 'clear_token':
+            return { token: null };
         default:
             return state;
 
     }
 }
-
+    const clear_token = (dispatch) => {
+        return () => {
+            dispatch({ type: 'clear_token'});
+            //somehow sign out!!
+        }
+    }
 const signup = (dispatch) => {
     return async ({ email, password }, callback) => {
         //make api request to sign up with that email and password
@@ -58,6 +65,6 @@ const signout = (dispatch) => {
 }
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { signin, signup, signout },
+    { signin, signup, signout, clear_token },
     { isSignedIn: false, errorMessage: '', token: null }
 )

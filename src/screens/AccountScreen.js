@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, Image, Text, FlatList, SafeAreaView,TouchableOpacity } from 'react-native';
+import { Context as AuthContext } from '../context/AuthContext';
 
-class AccountScreen extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-
-        return (
-          <SafeAreaView style={styles.container}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('TrackList')}>
-                  <Text>Go to TrackListFlow</Text>
-              </TouchableOpacity>
-              
-          </SafeAreaView>
-        );
-    }
+const AccountScreen = (props) => {
+    const { state, clear_token } = useContext(AuthContext);
+    console.log(state,'statee');
+ 
+    return (
+        <View style={styles.container}>
+            <TouchableOpacity onPress={ () => clear_token()}>
+                <Text>Log out</Text>
+            </TouchableOpacity>
+            
+        </View>
+      );
+      
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,

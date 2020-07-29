@@ -10,11 +10,9 @@ import TrackCreateScreen from '../screens/TrackCreateScreen';
 import TrackDetailScreen from '../screens/TrackDetailScreen';
 import TrackListScreen from '../screens/TrackListScreen';
 import { Provider as AuthProvider } from '../context/AuthContext'
-import { setNavigator } from './navigatorRef';
 import { Context as AuthContext } from '../context/AuthContext';
 
 const Stack = createStackNavigator();
-let isLogin = true;
 
 const TrackListFlowStack = createStackNavigator();
 function TrackListFlowScreen() {
@@ -41,7 +39,7 @@ function LoginFlowStack() {
 const MainFlow = createBottomTabNavigator();
 const AppStackNavigator = () => {
   const { state, signup } = useContext(AuthContext);
-  console.log('signup state: ',state);
+  console.log('logout token: ',state.token);
 
   if (!state.token) {
     return <LoginFlowStack />
