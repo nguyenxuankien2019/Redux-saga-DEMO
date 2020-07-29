@@ -10,7 +10,7 @@ class SigninScreen extends Component {
     render() {
         return (
             <>
-                <View style={styles.spacer}>
+                <View style={styles.container}>
                     <View style={styles.spacer} />
                     <Text h3>Sign up for Tracker</Text>
                     <View style={styles.spacer} />
@@ -18,7 +18,7 @@ class SigninScreen extends Component {
                     <View style={styles.spacer} />
                     <Input label='Password' />
                     <View style={styles.spacer} />
-                    <Button title='Sign up' />
+                    <Button containerStyle={styles.loginBtn} title='Sign up' />
                 </View>
             </>
         );
@@ -31,6 +31,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
+    },
+    loginBtn:{
+        width:'80%'
     },
     spacer: { margin: 10 }
 

@@ -28,7 +28,7 @@ const Stack = createStackNavigator();
         <NavigationContainer>
         <LoginStack.Navigator>
       <LoginStack.Screen name="Signin" component={SigninScreen}  />
-      <LoginStack.Screen name="Signup" component={SignupScreen} />
+      <LoginStack.Screen name="Signup"  options={{ title: '' }} component={SignupScreen} />
       </LoginStack.Navigator>
       </NavigationContainer>
       )
