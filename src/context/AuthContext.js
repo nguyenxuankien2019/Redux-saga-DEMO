@@ -16,13 +16,18 @@ const authReducer = (state, action) => {
 }
 
 const signup = (dispatch) => {
-    return async ({ email, password }) => {
+    return async ({ email, password }, callback) => {
         //make api request to sign up with that email and password
         try {
             const response = await trackApi.post('/signup', { email, password });
             console.log('response 200: ',response);
             await AsyncStorage.setItem('token', response.data.token);
             dispatch({ type: 'signup', payload: response.data.token});
+      
+            if( callback ) {
+                callback();
+            }
+            //navigate to main flow
         } catch (err) {
             console.log('err 400',err.message);
             dispatch({ type: 'add_error', payload: 'Something went wrong with sign up!'});
