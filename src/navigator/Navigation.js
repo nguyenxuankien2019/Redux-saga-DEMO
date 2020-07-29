@@ -10,7 +10,7 @@ import TrackCreateScreen from '../screens/TrackCreateScreen';
 import TrackDetailScreen from '../screens/TrackDetailScreen';
 import TrackListScreen from '../screens/TrackListScreen';
 const Stack = createStackNavigator();
-    let isLogin = false;
+    let isLogin = true;
 
     const TrackListFlowStack = createStackNavigator();
     function TrackListFlowScreen() {
