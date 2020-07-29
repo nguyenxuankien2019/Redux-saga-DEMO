@@ -1,42 +1,20 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet,  TouchableOpacity } from 'react-native';
-import { Text, Input, Button } from 'react-native-elements'
+import { View, StyleSheet,  TouchableOpacity, Text } from 'react-native';
 import { Context as AuthContext } from '../context/AuthContext';
+import AuthForm from './AuthForm';
 
 const SigninScreen = ({ navigation }) => {
     const { state, signup } = useContext(AuthContext);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-        
+
     return (
         <>
             <View style={styles.container}>
-                <View style={styles.spacer} />
-                <Text h3>Sign up for Tracker</Text>
-                <View style={styles.spacer} />
-
-                <Input
-                    label='Email'
-                    value={email}
-                    onChangeText={setEmail}
-                    autoCorrect={false}
-                    autoCapitalize='none' />
-                <View style={styles.spacer} />
-
-                <Input
-                    label='Password'
-                    value={password}
-                    onChangeText={setPassword}
-                    autoCorrect={false}
-                    autoCapitalize='none'
-                    secureTextEntry />
-                <View style={styles.spacer} />
-    {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage} </Text>:  null}
-                <Button
-                    onPress={() => signup({ email, password })}
-                    containerStyle={styles.loginBtn} title='Sign up' />
-          
-          <View style={styles.spacer} />
+            <AuthForm
+            headerText = "Sign up for Tracker"
+            errorMessage={state.errorMessage}
+            submitButtonText = "Sign Up"
+            onSubmit = {({ email, password}) => signup({email, password})}
+            />
           <TouchableOpacity 
           style={styles.existAccount}
           onPress={()=> navigation.navigate('Signin')}>
@@ -51,20 +29,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    loginBtn: {
-        width: '80%'
-    },
-    spacer: { margin: 10 },
-    errorMessage:{
-        marginBottom: 10,
-        width:'100%',
-        color:'red',
-    },
     existAccount:{
-        marginBottom: 10,
+        marginBottom: 20,
         marginRight:20,
         width:'100%',
         alignItems:'flex-end'
