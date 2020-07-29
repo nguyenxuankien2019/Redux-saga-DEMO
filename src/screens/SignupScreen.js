@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, FlatList, SafeAreaView } from 'react-native';
+import { View, StyleSheet,  TouchableOpacity } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements'
 import { Context as AuthContext } from '../context/AuthContext';
 
@@ -35,6 +35,13 @@ const SigninScreen = ({ navigation }) => {
                 <Button
                     onPress={() => signup({ email, password })}
                     containerStyle={styles.loginBtn} title='Sign up' />
+          
+          <View style={styles.spacer} />
+          <TouchableOpacity 
+          style={styles.existAccount}
+          onPress={()=> navigation.navigate('Signin')}>
+              <Text style={{color:'green'}}>Already have an account? Sign in instead </Text>
+          </TouchableOpacity>
             </View>
         </>
     );
@@ -55,6 +62,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         width:'100%',
         color:'red',
+    },
+    existAccount:{
+        marginBottom: 10,
+        marginRight:20,
+        width:'100%',
+        alignItems:'flex-end'
     }
 
 })
