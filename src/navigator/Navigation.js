@@ -18,7 +18,7 @@ const TrackListFlowStack = createStackNavigator();
 function TrackListFlowScreen() {
   return (
     <TrackListFlowStack.Navigator initialRouteName="TrackList">
-      <TrackListFlowStack.Screen name="TrackList" component={TrackListScreen} />
+      <TrackListFlowStack.Screen name="TrackList"  component={TrackListScreen} />
       <TrackListFlowStack.Screen name="TrackDetail" component={TrackDetailScreen} />
     </TrackListFlowStack.Navigator>
   )
