@@ -29,7 +29,7 @@ function LoginFlowStack() {
   return (
     <NavigationContainer>
       <LoginStack.Navigator>
-        <LoginStack.Screen name="Signin" component={SigninScreen} />
+        <LoginStack.Screen name="Signin" options={{ title: '' }} component={SigninScreen} />
         <LoginStack.Screen name="Signup" options={{ title: '' }} component={SignupScreen} />
       </LoginStack.Navigator>
     </NavigationContainer>
