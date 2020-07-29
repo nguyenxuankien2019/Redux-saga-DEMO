@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, Text, FlatList, SafeAreaView } from 'react-native';
+import { View, StyleSheet, Image, Text, FlatList, SafeAreaView,TouchableOpacity } from 'react-native';
 
 class AccountScreen extends Component {
     constructor(props) {
@@ -9,7 +9,11 @@ class AccountScreen extends Component {
     render() {
 
         return (
-           <Text> Account screens</Text>
+          <SafeAreaView style={styles.container}>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('TrackList')}>
+                  <Text>Go to TrackListFlow</Text>
+              </TouchableOpacity>
+          </SafeAreaView>
         );
     }
 }

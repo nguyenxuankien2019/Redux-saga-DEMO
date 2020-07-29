@@ -12,13 +12,13 @@ import TrackListScreen from '../screens/TrackListScreen';
 const Stack = createStackNavigator();
     let isLogin = false;
 
-    const TrackListFlow = createStackNavigator();
+    const TrackListFlowStack = createStackNavigator();
     function TrackListFlowScreen() {
       return  (
-        <TrackListFlow.Navigator initialRouteName='TrackDetail'>
-      <TrackListFlow.Screen name="TrackList" component={TrackListScreen}  />
-      <TrackListFlow.Screen name="TrackDetail" component={TrackDetailScreen} />
-      </TrackListFlow.Navigator>
+        <TrackListFlowStack.Navigator  initialRouteName="TrackList">
+      <TrackListFlowStack.Screen name="TrackList" component={TrackListScreen}  />
+      <TrackListFlowStack.Screen name="TrackDetail" component={TrackDetailScreen} />
+      </TrackListFlowStack.Navigator>
       )
     }
 
