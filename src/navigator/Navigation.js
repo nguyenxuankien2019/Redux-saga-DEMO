@@ -40,7 +40,7 @@ const MainFlow = createBottomTabNavigator();
 const AppStackNavigator = () => {
   const { state, signup } = useContext(AuthContext);
   console.log('logout token: ',state.token);
-
+  //try localSign heree!!!
   if (!state.token) {
     return <LoginFlowStack />
   }
