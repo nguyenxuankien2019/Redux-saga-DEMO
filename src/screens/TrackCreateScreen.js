@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, FlatList, SafeAreaView } from 'react-native';
-
+import { View, StyleSheet, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
+import Map from './Components/Map';
+import {Text} from 'react-native-elements';
 class SigninScreen extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +11,8 @@ class SigninScreen extends Component {
 
         return (
             <SafeAreaView style={styles.container}>
+                <Text h3>Track Create Screen</Text>
+                <Map/>
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('Account')}>
                 <Text>Go to TrackListFlow</Text>
             </TouchableOpacity>

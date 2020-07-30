@@ -5,11 +5,11 @@ import AuthForm from './Components/AuthForm';
 import NavLink from './Components/NavLink';
     //kiennx@gmail.com kien1234
 const SigninScreen = ({ navigation }) => {
-    const { state, signin, clearErrorMessage } = useContext(AuthContext);
+    const { state, signin, clear_error_message } = useContext(AuthContext);
     React.useEffect(() => {
         const unsubscribe = navigation.addListener('blur', () => {
           // do something
-          clearErrorMessage()
+          clear_error_message()
         });
     
         return unsubscribe;

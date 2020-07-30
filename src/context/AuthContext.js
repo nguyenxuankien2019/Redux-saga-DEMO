@@ -25,9 +25,9 @@ const tryLocalSignin = dispatch => async () => {
     const token = await AsyncStorage.getItem('token');
 
 }
-const clear_token = (dispatch) => {
+const clear_error_message = (dispatch) => {
     return () => {
-        dispatch({ type: 'clear_token' });
+        dispatch({ type: 'clear_error_message' });
         //somehow sign out!!
     }
 }
@@ -65,7 +65,6 @@ const signin = (dispatch) => {
             console.log('response 200: ', response);
             await AsyncStorage.setItem('token', response.data.token);
             dispatch({ type: 'signin', payload: response.data.token });
-            navigate("TrackList");
 
             //navigate to main flow
         } catch (err) {
@@ -86,6 +85,6 @@ const signout = dispatch => async () => {
 }
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { signin, signup, signout, clearErrorMessage,signout },
+    { signin, signup, signout, clear_error_message,signout },
     { isSignedIn: false, errorMessage: '', token: null }
 )
