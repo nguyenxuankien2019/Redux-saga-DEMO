@@ -3,7 +3,6 @@ import { View, StyleSheet,  TouchableOpacity, Text } from 'react-native';
 import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from './Components/AuthForm';
 import NavLink from './Components/NavLink';
-import { NavigationEvents } from 'react-navigation';
     //kiennx@gmail.com kien1234
 const SigninScreen = ({ navigation }) => {
     const { state, signin, clearErrorMessage } = useContext(AuthContext);
