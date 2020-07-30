@@ -19,6 +19,7 @@ const Map = () => {
 const styles = StyleSheet.create({
     map:{
         height:300,
+        width:'100%',
         backgroundColor:'red'
     }
 })
