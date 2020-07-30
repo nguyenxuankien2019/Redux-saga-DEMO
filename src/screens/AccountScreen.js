@@ -3,12 +3,12 @@ import { View, StyleSheet, Image, Text, FlatList, SafeAreaView,TouchableOpacity 
 import { Context as AuthContext } from '../context/AuthContext';
 
 const AccountScreen = (props) => {
-    const { state, clear_token } = useContext(AuthContext);
+    const { state,signout } = useContext(AuthContext);
     console.log(state,'statee');
  
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={ () => clear_token()}>
+            <TouchableOpacity onPress={ () => signout()}>
                 <Text>Log out</Text>
             </TouchableOpacity>
             
